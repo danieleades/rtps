@@ -1,0 +1,13 @@
+[package]
+name = "rtps"
+description = "implementation of the DDS RTPS protocol"
+version = "0.1.0"
+edition = "2021"
+license = "MIT"
+repository = "https://github.com/danieleades/rtps"
+keywords = ["network","protocol","dds","rtps"]
+categories = ["network-programming", "science::robotics"]
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
