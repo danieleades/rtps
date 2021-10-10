@@ -12,7 +12,7 @@ jobs:
     strategy:
       matrix:
         #build: [msrv, stable, beta, nightly, macos, windows]
-        build: [stable, nightly]
+        build: [nightly]
         include:
           # - build: msrv
           #   os: ubuntu-latest
