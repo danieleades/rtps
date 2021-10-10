@@ -1,4 +1,3 @@
-
 pub struct SubMessage {
     header: Header,
     elements: Vec<Element>,

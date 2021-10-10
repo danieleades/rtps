@@ -1,5 +1,5 @@
-use vec1::Vec1;
 use crate::structure::{ProtocolVersion, VendorId};
+use vec1::Vec1;
 
 use super::{ProtocolId, SubMessage};
 
