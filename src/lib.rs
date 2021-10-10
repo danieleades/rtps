@@ -1,5 +1,6 @@
 //! Implementation of the DDS RTPS protocol
 
+#![feature(derive_default_enum)]
 #![deny(
     clippy::all,
     missing_debug_implementations,
@@ -12,4 +13,4 @@
 mod behaviour;
 mod discovery;
 mod messages;
-mod structure;
+pub mod structure;

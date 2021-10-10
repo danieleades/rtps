@@ -1,2 +1,6 @@
-#[derive(Debug, Clone, Copy)]
-pub struct VendorId;
+#[derive(Debug, Clone, Copy, Default)]
+pub enum VendorId {
+    #[default]
+    Unknown,
+    Some([u8; 2]),
+}
