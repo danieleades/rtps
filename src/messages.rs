@@ -1,19 +1,10 @@
-pub struct Message {
-    header: Header,
-    header_extension: Option<HeaderExtension>,
-    submessages: Vec<SubMessage>,
-}
+mod message;
+mod protocol_id;
+mod header;
+mod submessage;
+mod byte_order;
 
-pub struct Header;
-pub struct HeaderExtension;
-
-use submessage::SubMessage;
-mod submessage {
-    pub struct SubMessage {
-        header: Header,
-        elements: Vec<Element>,
-    }
-
-    pub struct Header;
-    pub struct Element;
-}
+pub use byte_order::ByteOrder;
+pub use protocol_id::ProtocolId;
+pub use message::Message;
+pub use submessage::SubMessage;

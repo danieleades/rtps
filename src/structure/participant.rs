@@ -59,7 +59,7 @@ impl Builder {
     ///
     /// See <https://www.dds-foundation.org/dds-rtps-vendor-and-product-ids/> for a list of vendor IDs
     pub fn vendor_id(mut self, id: [u8; 2]) -> Self {
-        self.vendor_id = Some(VendorId::Some(id));
+        self.vendor_id = Some(VendorId::Known(id));
         self
     }
 

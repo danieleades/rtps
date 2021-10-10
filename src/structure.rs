@@ -21,3 +21,5 @@ pub use guid::Guid;
 pub use locator::Locator;
 #[doc(inline)]
 pub use participant::Participant;
+pub use protocol_version::ProtocolVersion;
+pub use vendor_id::VendorId;
