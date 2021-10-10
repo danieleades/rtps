@@ -1,11 +1,9 @@
-#[derive(Debug, Clone, Copy)]
+#[derive(Debug, Clone, Copy, Default)]
 pub enum ProtocolVersion {
+    #[default]
     Latest,
-    Specified { major: u16, minor: u16 },
-}
-
-impl Default for ProtocolVersion {
-    fn default() -> Self {
-        Self::Latest
-    }
+    Specified {
+        major: u16,
+        minor: u16,
+    },
 }

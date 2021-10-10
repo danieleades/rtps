@@ -2,7 +2,7 @@
 name = "rtps"
 description = "implementation of the DDS RTPS protocol"
 version = "0.1.0"
-edition = "2021"
+edition = "2018"
 license = "MIT"
 repository = "https://github.com/danieleades/rtps"
 keywords = ["network","protocol","dds","rtps"]
