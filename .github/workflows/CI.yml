@@ -17,9 +17,9 @@ jobs:
           # - build: msrv
           #   os: ubuntu-latest
           #   rust: 1.54
-          - build: stable
-            os: ubuntu-latest
-            rust: stable
+          # - build: stable
+          #   os: ubuntu-latest
+          #   rust: stable
           # - build: beta
           #   os: ubuntu-latest
           #   rust: beta
