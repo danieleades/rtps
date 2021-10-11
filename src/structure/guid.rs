@@ -1,9 +1,15 @@
 /// A unique identifier of an entity/actor within the RTPS protocol
 #[derive(Debug, Clone, Copy, PartialEq, Eq, PartialOrd, Ord)]
 pub struct Guid {
-    prefix: [u8; 12],
-    entity_id: [u8; 4],
+    prefix: Prefix,
+    entity_id: EntityId,
 }
+
+/// The prefix component of a [`Guid`]
+pub type Prefix = [u8; 12];
+
+/// The entity ID component of a [`Guid`]
+pub type EntityId = [u8; 4];
 
 impl Guid {
     /// Construct a new [`Guid`] from a prefix and an entity ID
@@ -22,19 +28,19 @@ impl Guid {
     /// assert_eq!(guid.entity_id(), entity_id);
     /// ```
     #[must_use]
-    pub fn new(prefix: [u8; 12], entity_id: [u8; 4]) -> Self {
+    pub fn new(prefix: Prefix, entity_id: EntityId) -> Self {
         Self { prefix, entity_id }
     }
 
     /// Return the [`Guid`] prefix
     #[must_use]
-    pub fn prefix(&self) -> [u8; 12] {
+    pub fn prefix(&self) -> Prefix {
         self.prefix
     }
 
     /// Return the entity ID
     #[must_use]
-    pub fn entity_id(&self) -> [u8; 4] {
+    pub fn entity_id(&self) -> EntityId {
         self.entity_id
     }
 }

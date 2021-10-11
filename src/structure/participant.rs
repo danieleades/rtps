@@ -7,6 +7,7 @@ use super::{
     locator::Locator,
     protocol_version::ProtocolVersion,
     vendor_id::VendorId,
+    EntityId, GuidPrefix,
 };
 
 /// an [`Entity`] which represents a collection of publishers and subscribers
@@ -34,7 +35,7 @@ pub struct Builder {
 }
 
 impl Builder {
-    fn new(guid_prefix: [u8; 12], entity_id: [u8; 4]) -> Self {
+    fn new(guid_prefix: GuidPrefix, entity_id: EntityId) -> Self {
         let guid = Guid::new(guid_prefix, entity_id);
         let protocol_version = None;
         let vendor_id = None;
@@ -122,7 +123,7 @@ impl Participant {
     /// let participant = Participant::new(guid_prefix, entity_id);
     /// ```
     #[must_use]
-    pub fn new(guid_prefix: [u8; 12], entity_id: [u8; 4]) -> Self {
+    pub fn new(guid_prefix: GuidPrefix, entity_id: EntityId) -> Self {
         Builder::new(guid_prefix, entity_id).build()
     }
 
@@ -144,7 +145,7 @@ impl Participant {
     ///     .default_unicast_locators(unicast_locators)
     ///     .build();
     /// ```
-    pub fn builder(guid_prefix: [u8; 12], entity_id: [u8; 4]) -> Builder {
+    pub fn builder(guid_prefix: GuidPrefix, entity_id: EntityId) -> Builder {
         Builder::new(guid_prefix, entity_id)
     }
 
@@ -190,7 +191,7 @@ impl Participant {
     /// let publisher = participant.publisher(publisher_id);
     /// ```
     #[must_use]
-    pub fn publisher(&self, entity_id: [u8; 4]) -> Publisher {
+    pub fn publisher(&self, entity_id: EntityId) -> Publisher {
         let guid = Guid::new(self.guid_prefix(), entity_id);
         Group::new(guid)
     }
@@ -200,7 +201,7 @@ impl Participant {
     ///
     /// # Example
     #[must_use]
-    pub fn subscriber(&self, entity_id: [u8; 4]) -> Subscriber {
+    pub fn subscriber(&self, entity_id: EntityId) -> Subscriber {
         let guid = Guid::new(self.guid_prefix(), entity_id);
         Group::new(guid)
     }
