@@ -8,6 +8,9 @@ pub struct Data {
     writer: EntityId,
     writer_sequence_number: i64,
     inline_qos: Vec<Param>,
+    fragment_starting_number: u32,
+    fragments: u32,
+    data_size: u64,
 }
 
 enum Payload {
