@@ -1,6 +1,6 @@
 //! Types associated with [`Group`]s of [`Endpoint`](super::Endpoint)s
 
-use super::{entity::Entity, guid::Guid};
+use super::{entity::Entity, guid::Guid, Endpoint};
 
 /// A [`Group`] represents a collection of [`Endpoint`](super::Endpoint)s
 ///
@@ -10,6 +10,7 @@ use super::{entity::Entity, guid::Guid};
 pub struct Group<T> {
     guid: Guid,
     marker: std::marker::PhantomData<T>,
+    endpoints: Vec<Endpoint>,
 }
 
 impl<T> Entity for Group<T> {
@@ -21,7 +22,12 @@ impl<T> Entity for Group<T> {
 impl<T> Group<T> {
     pub(crate) fn new(guid: Guid) -> Self {
         let marker = std::marker::PhantomData;
-        Self { guid, marker }
+        let endpoints = Vec::new();
+        Self {
+            guid,
+            marker,
+            endpoints,
+        }
     }
 }
 

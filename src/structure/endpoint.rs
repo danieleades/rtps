@@ -6,6 +6,8 @@ pub struct Endpoint {
     guid: Guid,
     unicast_locators: Vec<Locator>,
     multicast_locators: Vec<Locator>,
+    topic_kind: TopicKind,
+    reliability_level: ReliabilityKind,
 }
 
 impl Endpoint {
@@ -26,4 +28,19 @@ impl Entity for Endpoint {
     fn guid(&self) -> Guid {
         self.guid
     }
+}
+
+/// Used to indicate whether the [Endpoint] supports instance lifecycle
+/// management operations
+#[derive(Debug)]
+pub enum TopicKind {
+    WithKey,
+    NoKey,
+}
+
+/// The levels of reliability supported by the [Endpoint].
+#[derive(Debug)]
+pub enum ReliabilityKind {
+    BestEffort,
+    Reliable,
 }
