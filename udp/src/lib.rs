@@ -1,3 +1,5 @@
+//! UDP-specific implementation of the RTPS protocol
+
 #![deny(
     clippy::all,
     missing_debug_implementations,

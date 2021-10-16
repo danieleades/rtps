@@ -5,11 +5,6 @@ use super::guid::Guid;
 /// A persisted cache of changes.
 ///
 /// For details, see the [specification, pg. 25](https://www.omg.org/spec/DDSI-RTPS/2.5/PDF#page=25)
-///
-/// # Example
-///
-/// ```
-///
 pub trait Cache<Data> {
     /// The [`Guid`] prefix, shared by all entities in an RTPS participant
     type Prefix: Copy;
@@ -29,7 +24,7 @@ pub trait Cache<Data> {
     /// [`Cache`]
     type RemErr: std::error::Error;
 
-    /// Add a change to the [`HistoryCache`]
+    /// Add a change to the [`Cache`]
     ///
     /// Returns the 'sequence number' of that change.
     ///
@@ -72,8 +67,15 @@ where
 /// The type of [`Change`]
 #[derive(Debug)]
 pub enum Kind<Data> {
+    /// TODO
     Alive(Data),
+
+    /// TODO
     AliveFiltered,
+
+    /// TODO
     NotAliveDisposed,
+
+    /// TODO
     NotAliveUnregistered,
 }

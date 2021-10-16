@@ -9,6 +9,7 @@ pub mod submessage;
 
 #[doc(inline)]
 pub use byte_order::ByteOrder;
+pub use header::{Extension as HeaderExtension, Header};
 #[doc(inline)]
 pub use message::Message;
 #[doc(inline)]
