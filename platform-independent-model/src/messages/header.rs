@@ -1,5 +1,5 @@
-use crate::structure::{ProtocolVersion, VendorId};
 use super::ProtocolId;
+use crate::structure::{ProtocolVersion, VendorId};
 
 #[derive(Debug)]
 pub struct Header<P> {

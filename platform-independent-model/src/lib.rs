@@ -6,7 +6,7 @@
     missing_debug_implementations,
     missing_docs,
     clippy::cargo,
-    unsafe_code,
+    unsafe_code
 )]
 #![warn(clippy::pedantic)]
 #![allow(dead_code)]

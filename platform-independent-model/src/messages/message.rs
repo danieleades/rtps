@@ -22,7 +22,8 @@ pub struct Header {
 }
 
 /// An extension to the [`Message`] header
-/// 
-/// The [`HeaderExtension`] was added in version 2.5 of the RTPS specification, and is compatible with, but ignored by earlier implementations.
+///
+/// The [`HeaderExtension`] was added in version 2.5 of the RTPS specification,
+/// and is compatible with, but ignored by earlier implementations.
 #[derive(Debug)]
 pub struct HeaderExtension;

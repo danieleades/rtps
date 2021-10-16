@@ -2,6 +2,7 @@
 
 mod ack_nack;
 mod data;
+mod data_frag;
 
 /// A component of a [`Message`](super::Message)
 #[derive(Debug)]

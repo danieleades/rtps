@@ -1,4 +1,3 @@
-
 /// Identifier for the protocol used
 #[derive(Debug)]
 pub enum ProtocolId {

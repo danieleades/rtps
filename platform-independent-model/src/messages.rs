@@ -1,4 +1,5 @@
-//! Structures and message definitions used in all communications between RTPS entities
+//! Structures and message definitions used in all communications between RTPS
+//! entities
 
 mod byte_order;
 mod header;
