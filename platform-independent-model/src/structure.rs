@@ -7,7 +7,7 @@ mod endpoint;
 mod entity;
 pub mod group;
 mod guid;
-mod history;
+pub mod history;
 mod locator;
 pub mod participant;
 mod protocol_version;

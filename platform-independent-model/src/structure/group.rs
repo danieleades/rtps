@@ -7,19 +7,32 @@ use super::{entity::Entity, guid::Guid};
 /// A [`Group`] of 'writers' is a [`Publisher`], while a [`Group`] of 'readers'
 /// is a [`Subscriber`].
 #[derive(Debug)]
-pub struct Group<T> {
-    guid: Guid,
+pub struct Group<T, P, Id>
+where
+    P: Copy,
+    Id: Copy,
+{
+    guid: Guid<P, Id>,
     marker: std::marker::PhantomData<T>,
 }
 
-impl<T> Entity for Group<T> {
-    fn guid(&self) -> Guid {
+impl<T, P, Id> Entity<P, Id> for Group<T, P, Id>
+where
+    P: Copy,
+    Id: Copy,
+{
+    fn guid(&self) -> Guid<P, Id> {
         self.guid
     }
 }
 
-impl<T> Group<T> {
-    pub(crate) fn new(guid: Guid) -> Self {
+impl<T, P, Id> Group<T, P, Id>
+where
+    P: Copy,
+    Id: Copy,
+{
+    pub(crate) fn new(guid_prefix: P, entity_id: Id) -> Self {
+        let guid = Guid::new(guid_prefix, entity_id);
         let marker = std::marker::PhantomData;
         Self { guid, marker }
     }
@@ -34,7 +47,7 @@ pub struct Reader;
 pub struct Writer;
 
 /// A [`Group`] of readers
-pub type Publisher = Group<Reader>;
+pub type Publisher<P, Id> = Group<Reader, P, Id>;
 
 /// A [`Group`] of writers
-pub type Subscriber = Group<Writer>;
+pub type Subscriber<P, Id> = Group<Writer, P, Id>;

@@ -5,12 +5,10 @@
     clippy::all,
     missing_debug_implementations,
     missing_docs,
-    clippy::cargo
+    clippy::cargo,
+    unsafe_code
 )]
 #![warn(clippy::pedantic)]
-#![allow(dead_code)] // this is temporary
 
-mod behaviour;
-mod discovery;
-mod messages;
+pub mod messages;
 pub mod structure;
