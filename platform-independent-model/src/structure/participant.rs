@@ -134,7 +134,7 @@ where
     /// # Example
     ///
     /// ```
-    /// use rtps::structure::Participant;
+    /// use rtps_pim::structure::Participant;
     ///
     /// let guid_prefix = [0; 12];
     /// let entity_id = [0, 0, 0, 1];
@@ -151,7 +151,7 @@ where
     /// # Example
     ///
     /// ```
-    /// use rtps::structure::Participant;
+    /// use rtps_pim::structure::Participant;
     /// use std::net::{Ipv4Addr, SocketAddrV4};
     ///
     /// let vendor_id = [0x12, 0x12];
@@ -200,7 +200,7 @@ where
     /// # Example
     ///
     /// ```
-    /// # use rtps::structure::Participant;
+    /// # use rtps_pim::structure::Participant;
     /// #
     /// # let guid_prefix = [0; 12];
     /// # let entity_id = [0, 0, 0, 1];

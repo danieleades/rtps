@@ -19,7 +19,7 @@ where
     /// # Example
     ///
     /// ```
-    /// use rtps::structure::Guid;
+    /// use rtps_pim::structure::Guid;
     ///
     /// let guid_prefix = [0; 12];
     /// let entity_id = [0, 0, 0, 1];
