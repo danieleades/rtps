@@ -9,7 +9,6 @@
     unsafe_code
 )]
 #![warn(clippy::pedantic)]
-#![allow(dead_code)]
 
 pub mod messages;
 pub mod structure;
