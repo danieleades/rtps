@@ -1,17 +1,19 @@
 /// A unique identifier of an entity/actor within the RTPS protocol
 #[derive(Debug, Clone, Copy, PartialEq, Eq, PartialOrd, Ord)]
-pub struct Guid {
+pub struct Guid<Prefix, EntityId>
+where
+    Prefix: Copy,
+    EntityId: Copy,
+{
     prefix: Prefix,
     entity_id: EntityId,
 }
 
-/// The prefix component of a [`Guid`]
-pub type Prefix = [u8; 12];
-
-/// The entity ID component of a [`Guid`]
-pub type EntityId = [u8; 4];
-
-impl Guid {
+impl<Prefix, EntityId> Guid<Prefix, EntityId>
+where
+    Prefix: Copy,
+    EntityId: Copy,
+{
     /// Construct a new [`Guid`] from a prefix and an entity ID
     ///
     /// # Example

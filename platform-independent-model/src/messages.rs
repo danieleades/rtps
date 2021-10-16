@@ -1,10 +1,14 @@
 mod byte_order;
-mod header;
-mod message;
+pub mod header;
+pub mod message;
 mod protocol_id;
-mod submessage;
+pub mod submessage;
 
+#[doc(inline)]
 pub use byte_order::ByteOrder;
+#[doc(inline)]
 pub use message::Message;
+#[doc(inline)]
 pub use protocol_id::ProtocolId;
+#[doc(inline)]
 pub use submessage::SubMessage;

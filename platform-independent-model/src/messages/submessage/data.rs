@@ -1,11 +1,11 @@
-use crate::{messages::ByteOrder, structure::EntityId};
+use crate::messages::ByteOrder;
 
-pub struct Data {
+pub struct Data<Id> {
     endianess: ByteOrder,
     payload: Payload,
     non_standard_payload: bool,
-    reader: EntityId,
-    writer: EntityId,
+    reader: Id,
+    writer: Id,
     writer_sequence_number: i64,
     inline_qos: Vec<Param>,
     fragment_starting_number: u32,

@@ -7,7 +7,7 @@ mod endpoint;
 mod entity;
 pub mod group;
 mod guid;
-mod history;
+pub mod history;
 mod locator;
 pub mod participant;
 mod protocol_version;
@@ -17,7 +17,7 @@ pub use endpoint::Endpoint;
 pub use entity::Entity;
 #[doc(inline)]
 pub use group::{Group, Publisher, Subscriber};
-pub use guid::{EntityId, Guid, Prefix as GuidPrefix};
+pub use guid::Guid;
 pub use locator::Locator;
 #[doc(inline)]
 pub use participant::Participant;

@@ -7,14 +7,17 @@ use super::{
     locator::Locator,
     protocol_version::ProtocolVersion,
     vendor_id::VendorId,
-    EntityId, GuidPrefix,
 };
 
 /// an [`Entity`] which represents a collection of publishers and subscribers
 /// participating in an RTPS network
 #[derive(Debug)]
-pub struct Participant {
-    guid: Guid,
+pub struct Participant<P, Id>
+where
+    P: Copy,
+    Id: Copy,
+{
+    guid: Guid<P, Id>,
     protocol_version: ProtocolVersion,
     vendor_id: VendorId,
     default_unicast_locators: Vec<Locator>,
@@ -26,16 +29,24 @@ pub struct Participant {
 /// See the [`Participant`] docs for details
 #[derive(Debug)]
 #[must_use]
-pub struct Builder {
-    guid: Guid,
+pub struct Builder<P, Id>
+where
+    P: Copy,
+    Id: Copy,
+{
+    guid: Guid<P, Id>,
     protocol_version: Option<ProtocolVersion>,
     vendor_id: Option<VendorId>,
     default_unicast_locators: Vec<Locator>,
     default_multicast_locators: Vec<Locator>,
 }
 
-impl Builder {
-    fn new(guid_prefix: GuidPrefix, entity_id: EntityId) -> Self {
+impl<P, Id> Builder<P, Id>
+where
+    P: Copy,
+    Id: Copy,
+{
+    fn new(guid_prefix: P, entity_id: Id) -> Self {
         let guid = Guid::new(guid_prefix, entity_id);
         let protocol_version = None;
         let vendor_id = None;
@@ -90,7 +101,7 @@ impl Builder {
 
     /// Consume the [`Builder`] and return a configured [`Participant`]
     #[must_use]
-    pub fn build(self) -> Participant {
+    pub fn build(self) -> Participant<P, Id> {
         Participant {
             guid: self.guid,
             protocol_version: self.protocol_version.unwrap_or_default(),
@@ -101,13 +112,21 @@ impl Builder {
     }
 }
 
-impl Entity for Participant {
-    fn guid(&self) -> Guid {
+impl<P, Id> Entity<P, Id> for Participant<P, Id>
+where
+    P: Copy,
+    Id: Copy,
+{
+    fn guid(&self) -> Guid<P, Id> {
         self.guid
     }
 }
 
-impl Participant {
+impl<P, Id> Participant<P, Id>
+where
+    P: Copy,
+    Id: Copy,
+{
     /// Construct a new [`Participant`]
     ///
     /// For additional options, use [`Participant::builder`] instead.
@@ -123,7 +142,7 @@ impl Participant {
     /// let participant = Participant::new(guid_prefix, entity_id);
     /// ```
     #[must_use]
-    pub fn new(guid_prefix: GuidPrefix, entity_id: EntityId) -> Self {
+    pub fn new(guid_prefix: P, entity_id: Id) -> Self {
         Builder::new(guid_prefix, entity_id).build()
     }
 
@@ -145,7 +164,7 @@ impl Participant {
     ///     .default_unicast_locators(unicast_locators)
     ///     .build();
     /// ```
-    pub fn builder(guid_prefix: GuidPrefix, entity_id: EntityId) -> Builder {
+    pub fn builder(guid_prefix: P, entity_id: Id) -> Builder<P, Id> {
         Builder::new(guid_prefix, entity_id)
     }
 
@@ -191,9 +210,8 @@ impl Participant {
     /// let publisher = participant.publisher(publisher_id);
     /// ```
     #[must_use]
-    pub fn publisher(&self, entity_id: EntityId) -> Publisher {
-        let guid = Guid::new(self.guid_prefix(), entity_id);
-        Group::new(guid)
+    pub fn publisher(&self, entity_id: Id) -> Publisher<P, Id> {
+        Group::new(self.guid_prefix(), entity_id)
     }
 
     /// Construct a new [`Subscriber`] [`Group`] using the [`Guid`] prefix of
@@ -201,8 +219,7 @@ impl Participant {
     ///
     /// # Example
     #[must_use]
-    pub fn subscriber(&self, entity_id: EntityId) -> Subscriber {
-        let guid = Guid::new(self.guid_prefix(), entity_id);
-        Group::new(guid)
+    pub fn subscriber(&self, entity_id: Id) -> Subscriber<P, Id> {
+        Group::new(self.guid_prefix(), entity_id)
     }
 }

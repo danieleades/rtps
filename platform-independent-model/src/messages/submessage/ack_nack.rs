@@ -1,4 +1,4 @@
-use crate::{messages::ByteOrder, structure::EntityId};
+use crate::messages::ByteOrder;
 
 /// This Submessage is used to communicate the state of a Reader to a Writer.
 /// The Submessage allows the Reader to inform the Writer about the sequence
@@ -6,10 +6,10 @@ use crate::{messages::ByteOrder, structure::EntityId};
 /// can be used to do both positive and negative acknowledgments.
 ///
 /// see [specification pg. 56](https://www.omg.org/spec/DDSI-RTPS/2.5/PDF#page=56)
-pub struct AckNack {
+pub struct AckNack<Id> {
     header: Header,
-    reader: EntityId,
-    writer: EntityId,
+    reader: Id,
+    writer: Id,
     reader_sequence_number_state: SequenceNumberState,
     count: u32,
 }

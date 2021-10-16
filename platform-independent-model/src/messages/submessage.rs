@@ -1,6 +1,7 @@
 mod ack_nack;
 mod data;
 
+#[derive(Debug)]
 pub struct SubMessage {
     header: Header,
     elements: Vec<Element>,
@@ -75,7 +76,9 @@ mod submessage_kinds {
     }
 }
 
-#[non_exhaustive]
 
+#[derive(Debug)]
 pub struct Header;
+
+#[derive(Debug)]
 pub struct Element;
