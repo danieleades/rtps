@@ -1,6 +1,9 @@
+//! Submessages which make up an RTPS [`Message`](super::Message)
+
 mod ack_nack;
 mod data;
 
+/// A component of a [`Message`](super::Message)
 #[derive(Debug)]
 pub struct SubMessage {
     header: Header,
@@ -76,9 +79,10 @@ mod submessage_kinds {
     }
 }
 
-
+/// A header of a [`SubMessage`]
 #[derive(Debug)]
 pub struct Header;
 
+/// An element of a [`SubMessage`]
 #[derive(Debug)]
 pub struct Element;

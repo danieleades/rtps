@@ -1,5 +1,7 @@
+//! Structures and message definitions used in all communications between RTPS entities
+
 mod byte_order;
-pub mod header;
+mod header;
 pub mod message;
 mod protocol_id;
 pub mod submessage;

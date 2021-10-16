@@ -1,3 +1,5 @@
+//! Components of a [`Message`]
+
 use crate::structure::{ProtocolVersion, VendorId};
 use vec1::Vec1;
 
@@ -11,6 +13,7 @@ pub struct Message {
     submessages: Vec1<SubMessage>,
 }
 
+/// A [`Message`] header
 #[derive(Debug)]
 pub struct Header {
     protocol_id: ProtocolId,
@@ -18,5 +21,8 @@ pub struct Header {
     vendor_id: VendorId,
 }
 
+/// An extension to the [`Message`] header
+/// 
+/// The [`HeaderExtension`] was added in version 2.5 of the RTPS specification, and is compatible with, but ignored by earlier implementations.
 #[derive(Debug)]
 pub struct HeaderExtension;
