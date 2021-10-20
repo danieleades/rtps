@@ -9,5 +9,5 @@
 )]
 #![warn(clippy::pedantic)]
 
-mod behaviour;
-mod structure;
+mod cdr;
+mod model;

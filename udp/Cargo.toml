@@ -11,4 +11,11 @@ categories = ["network-programming", "science::robotics"]
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
+bit-vec = "0.6.3"
 rtps-pim = { path = "../platform-independent-model" }
+safer-bytes = "0.1.1"
+serde = "1.0.130"
+thiserror = "1.0.30"
+
+[dev-dependencies]
+test-case = "1.2.0"
