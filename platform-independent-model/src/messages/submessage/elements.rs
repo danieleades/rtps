@@ -18,8 +18,9 @@ pub struct SequenceNumberSet {
 
 impl SequenceNumberSet {
     /// Create a new [`SequenceNumberSet`]
-    /// 
-    /// The 'base' of the set is a lower bound for all values in the set. All values in the range are calculated as offsets from the base.
+    ///
+    /// The 'base' of the set is a lower bound for all values in the set. All
+    /// values in the range are calculated as offsets from the base.
     #[must_use]
     pub fn new(base: NonZeroU64) -> Self {
         let offsets = BTreeSet::default();
@@ -94,18 +95,20 @@ impl SequenceNumberSet {
     }
 }
 
-/// Errors that can occur when inserting a new value into a [`SequenceNumberSet`]
+/// Errors that can occur when inserting a new value into a
+/// [`SequenceNumberSet`]
 #[derive(Debug, thiserror::Error)]
 #[cfg_attr(test, derive(PartialEq))]
 pub enum OutOfBoundsError {
     /// The provided value is smaller than the base
-    /// 
-    /// This is not allowed, since all values are stored as a positive offset from the case
+    ///
+    /// This is not allowed, since all values are stored as a positive offset
+    /// from the case
     #[error("the provided number is less than the base value of the set")]
     LessThanBase,
 
     /// The provided value is too far from the base
-    /// 
+    ///
     /// The maximum offset is 255, so N - base <= 255
     #[error("the provided number is too far from the offset")]
     OffsetTooLarge,
