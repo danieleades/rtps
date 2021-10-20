@@ -1,7 +1,7 @@
-use crate::messages::ByteOrder;
+use super::Header;
 
 pub struct Data<Id> {
-    endianess: ByteOrder,
+    header: Header,
     payload: Payload,
     non_standard_payload: bool,
     reader: Id,
