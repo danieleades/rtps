@@ -1,8 +1,11 @@
 //! Submessages which make up an RTPS [`Message`](super::Message)
 
+use super::ByteOrder;
+
 mod ack_nack;
 mod data;
 mod data_frag;
+pub mod elements;
 
 /// A component of a [`Message`](super::Message)
 #[derive(Debug)]
@@ -82,7 +85,10 @@ mod submessage_kinds {
 
 /// A header of a [`SubMessage`]
 #[derive(Debug)]
-pub struct Header;
+pub struct Header {
+    endianess: ByteOrder,
+    length: usize,
+}
 
 /// An element of a [`SubMessage`]
 #[derive(Debug)]

@@ -11,5 +11,10 @@ categories = ["network-programming", "science::robotics"]
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
+bit-vec = "0.6.3"
 chrono = "0.4.19"
+thiserror = "1.0.30"
 vec1 = "1.8.0"
+
+[dev-dependencies]
+test-case = "1.2.0"
