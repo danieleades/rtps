@@ -6,13 +6,25 @@ node "Platform-Independent Model (PIM)" as pim {
 package "Platform-Specific Models" {
 
     node "PSM Y" as psm_y
-    pim -> psm_y
+    pim ..> psm_y
 
     node "PSM X" as psm_x
-    pim --> psm_x
+    pim ..> psm_x
 
     node UDP as udp
     pim --> udp
+}
+
+package "Implementations" as impls {
+
+    node "PSM Y" as psm_y_impl
+    psm_y ..> psm_y_impl
+
+    node "PSM X" as psm_x_impl
+    psm_x ..> psm_x_impl
+
+    node "UDP" as udp_impl
+    udp --> udp_impl
 }
 
 @enduml

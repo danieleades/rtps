@@ -1,5 +1,3 @@
-use std::convert::TryInto;
-
 use bit_vec::BitVec;
 use rtps_pim::messages::{submessage::elements::SequenceNumberSet, ByteOrder};
 use safer_bytes::{BufMut, SafeBuf};
