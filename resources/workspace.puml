@@ -1,0 +1,18 @@
+@startuml Workspace Diagram
+node "Platform-Independent Model (PIM)" as pim {
+
+}
+
+package "Platform-Specific Models" {
+
+    node "PSM Y" as psm_y
+    pim -> psm_y
+
+    node "PSM X" as psm_x
+    pim --> psm_x
+
+    node UDP as udp
+    pim --> udp
+}
+
+@enduml
