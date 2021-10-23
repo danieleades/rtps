@@ -12,8 +12,8 @@ This crate uses a layered structure to separate the 'platform-independent model'
 - the UDP-based PSM required by the RTPS specification is provided by the [rtps-udp](udp) crate
 - additional PSMs can be added by extending the PIM
 
-![workspace diagram](http://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/danieleades/rtps/update-readme/resources/workspace.puml)
+![workspace diagram](http://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/danieleades/rtps/main/resources/workspace.puml?cached=false)
 
 ## Contributing
 
-Contributes are very welcome! This crate is brand new, and still in an exploratory phase of development, so expect a lot of churn.
+Contributions are very welcome! This crate is brand new, and still in an exploratory phase of development, so expect a lot of churn.
