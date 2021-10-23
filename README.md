@@ -1,5 +1,8 @@
 # Real-Time Publish Subscribe (RTPS) Protocol
 
+![example workflow](https://github.com/danieleades/rtps/actions/workflows/CI.yml/badge.svg)
+[![codecov](https://codecov.io/gh/danieleades/rtps/branch/main/graph/badge.svg?token=zMXM0QthTc)](https://codecov.io/gh/danieleades/rtps)
+
 an implementation of the DDS common wire protocol (RTPS)
 
 The specification for this protocol can be found [here](https://www.omg.org/spec/DDSI-RTPS/2.5/PDF)
