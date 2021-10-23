@@ -1,2 +1,6 @@
 [workspace]
-members = ["platform-independent-model", "udp"]
+members = [
+    "platform-independent-model",
+    "platform-specific-models/udp",
+    "implementations/udp",
+]

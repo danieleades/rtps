@@ -9,11 +9,14 @@ The specification for this protocol can be found [here](https://www.omg.org/spec
 
 ## Structure
 
-This crate uses a layered structure to separate the 'platform-independent model' (PIM) of the RTPS specification from the 'platform-specific implementations' (PSM).
+This crate uses a layered structure to separate the 'platform-independent model' (PIM) of the RTPS specification, the 'platform-specific implementations' (PSM), and the concrete implementations.
+
+This provides maximum extensibility for downstream crates to use the core types of this crate, without committing to a specific implementation, or QOS guarantees.
 
 - the PIM is provided by the [rtps-pim](platform-independent-model) crate
-- the UDP-based PSM required by the RTPS specification is provided by the [rtps-udp](udp) crate
-- additional PSMs can be added by extending the PIM
+- the UDP-based PSM required by the RTPS specification is provided by the [rtps-psm-udp](platform-specific-models/udp) crate
+  - additional PSMs can be added by extending the PIM
+- A UDP implementation is provided in the [rtps-udp](implementations/udp)
 
 ![workspace diagram](http://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/danieleades/rtps/main/resources/workspace.puml?cached=false)
 

@@ -1,6 +1,6 @@
 //! Component elements of a [`SubMessage`](super::SubMessage)
 
-use std::{collections::BTreeSet, convert::TryInto, num::NonZeroU64};
+use std::{collections::BTreeSet, num::NonZeroU64};
 
 /// [`SequenceNumberSet`] submessage elements are used as parts of several
 /// messages to provide binary information about individual sequence numbers
@@ -117,7 +117,6 @@ pub enum OutOfBoundsError {
 #[cfg(test)]
 mod tests {
     use super::{OutOfBoundsError, SequenceNumberSet};
-    use std::convert::TryInto;
     use test_case::test_case;
 
     #[allow(clippy::bool_assert_comparison)]

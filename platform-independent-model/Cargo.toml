@@ -2,7 +2,7 @@
 name = "rtps-pim"
 description = "implementation of the DDS RTPS protocol Platform-Independent Model (PIM)"
 version = "0.1.0"
-edition = "2018"
+edition = "2021"
 license = "MIT"
 repository = "https://github.com/danieleades/rtps"
 keywords = ["network","protocol","dds","rtps"]

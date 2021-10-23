@@ -1,8 +1,8 @@
 [package]
-name = "rtps-udp"
+name = "rtps-psm-udp"
 description = "UDP-specific implementation of the DDS RTPS protocol"
 version = "0.1.0"
-edition = "2018"
+edition = "2021"
 license = "MIT"
 repository = "https://github.com/danieleades/rtps"
 keywords = ["network","protocol","dds","rtps"]
@@ -12,7 +12,7 @@ categories = ["network-programming", "science::robotics"]
 
 [dependencies]
 bit-vec = "0.6.3"
-rtps-pim = { path = "../platform-independent-model" }
+rtps-pim = { path = "../../platform-independent-model" }
 safer-bytes = "0.1.1"
 serde = "1.0.130"
 thiserror = "1.0.30"
