@@ -13,7 +13,7 @@ categories = ["network-programming", "science::robotics"]
 [dependencies]
 bit-vec = "0.6.3"
 rtps-pim = { path = "../platform-independent-model" }
-safer-bytes = "0.1.1"
+safer-bytes = "0.2.0"
 serde = "1.0.130"
 thiserror = "1.0.30"
 
