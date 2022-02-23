@@ -18,4 +18,4 @@ serde = "1.0.130"
 thiserror = "1.0.30"
 
 [dev-dependencies]
-test-case = "1.2.0"
+test-case = "2.0.0"
