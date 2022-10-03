@@ -17,4 +17,4 @@ thiserror = "1.0.30"
 vec1 = "1.8.0"
 
 [dev-dependencies]
-test-case = "1.2.0"
+test-case = "2.2.2"
